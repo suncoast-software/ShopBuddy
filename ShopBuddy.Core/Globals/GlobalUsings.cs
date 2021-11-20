@@ -4,3 +4,7 @@ global using System.Windows;
 global using System;
 global using Microsoft.Extensions.DependencyInjection;
 global using ShopBuddy.Core.ViewModels;
+global using System.Collections.Generic;
+global using System.ComponentModel;
+global using System.Runtime.CompilerServices;
+global using System.Windows.Input;
