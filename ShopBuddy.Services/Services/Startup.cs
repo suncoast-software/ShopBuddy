@@ -1,16 +1,14 @@
 ﻿namespace ShopBuddy.Services.Services;
 public class Startup : IStartupService
 {
-    public IHost? _host;
-
-    public IHost CreatDefaultHostBuilder()
+    public void CreateDefaultHostBuilder()
     {
-        _host = Host.CreateDefaultBuilder()
-            .ConfigureServices(services =>
-            {
+        Host.CreateDefaultBuilder()
+        .ConfigureServices(services =>
+        {
+            services.AddSingleton<AppDbContextFactory>();
 
-            }).Build();
-        return _host;
+        }).Build();
     }
 }
 

@@ -2,7 +2,7 @@
 
 public interface IStartupService
 {
-    IHost CreatDefaultHostBuilder();
+    void CreateDefaultHostBuilder();
 
 }
 

@@ -1,2 +1,13 @@
-﻿global using Microsoft.Extensions.Hosting;
+﻿global using System.Text.Json;
+global using System;
+global using System.IO;
+global using System.Text;
+global using Microsoft.Extensions.Hosting;
 global using ShopBuddy.Services.Interfaces;
+global using Microsoft.EntityFrameworkCore.Design;
+global using Microsoft.EntityFrameworkCore;
+global using ShopBuddy.Data.Configuration;
+global using ShopBuddy.Data;
+global using ShopBuddy.Services.Services;
+global using Microsoft.Extensions.DependencyInjection;
+global using ShopBuddy.Services.Factories;
