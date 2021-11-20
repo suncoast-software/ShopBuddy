@@ -1,6 +1,4 @@
-﻿
-
-namespace ShopBuddy.Core;
+﻿namespace ShopBuddy.Core;
 public partial class App : Application
 {
     private readonly IServiceProvider _serviceProvider;
