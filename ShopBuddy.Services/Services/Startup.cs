@@ -6,7 +6,7 @@ public class Startup : IStartupService
         Host.CreateDefaultBuilder()
         .ConfigureServices(services =>
         {
-            services.AddSingleton<AppDbContextFactory>();
+           // services.AddSingleton<AppDbContextFactory>();
 
         }).Build();
     }

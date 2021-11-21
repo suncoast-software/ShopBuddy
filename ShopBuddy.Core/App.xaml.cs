@@ -5,7 +5,8 @@ public partial class App : Application
     public App()
     {
         IServiceCollection services = new ServiceCollection();
-        services.AddSingleton<AppDbContextFactory>();
+        services.AddTransient<AppDbContextFactory>();
+       
         services.AddSingleton<AppViewModel>();
         services.AddSingleton<MainWindow>(s => new MainWindow()
         {
@@ -13,6 +14,7 @@ public partial class App : Application
         });
 
         _serviceProvider = services.BuildServiceProvider();
+       
     }
 
     protected override void OnStartup(StartupEventArgs e)

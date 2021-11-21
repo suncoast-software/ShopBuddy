@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShopBuddy.Data\ShopBuddy.Data.csproj" />
     <ProjectReference Include="..\ShopBuddy.Services\ShopBuddy.Services.csproj" />
   </ItemGroup>
 

@@ -8,7 +8,7 @@ public class DataService : IDataService
         using var sr = new StreamReader(fs, new UTF8Encoding(false));
         var json = sr.ReadToEnd();
 
-        var configJson = JsonSerializer.Deserialize<Config>(json);
+        var configJson = JsonConvert.DeserializeObject<Config>(json);
 
         return configJson;
     }

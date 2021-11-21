@@ -72,10 +72,12 @@
                                     HorizontalAlignment="Center">
                             <Button Style="{StaticResource MaterialDesignFlatAccentBgButton}"
                                     Content="LOGIN"
-                                    Margin="10 10"/>
+                                    Margin="10 10"
+                                    Command="{Binding LoginCommand}"/>
                             <Button Style="{StaticResource MaterialDesignFlatAccentBgButton}"
                                     Content="CANCEL"
-                                    Margin="10 10"/>
+                                    Margin="10 10"
+                                    Command="{Binding CancelCommand}"/>
                         </StackPanel>
 
                     </StackPanel>
