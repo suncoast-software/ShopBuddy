@@ -14,12 +14,9 @@
         WindowStartupLocation="CenterScreen"
         Background="{x:Null}">
     <Window.Resources>
-         <DataTemplate x:Name="LoginTemplate" DataType="{x:Type vm:LoginViewModel}">
-            <uc:LoginView/>
-         </DataTemplate>
-         <DataTemplate x:Name="RegisterTemplate" DataType="{x:Type vm:RegisterViewModel}">
+        <DataTemplate x:Name="RegisterViewTemplate" DataType="{x:Type vm:RegisterViewModel}">
             <uc:RegisterView/>
-         </DataTemplate>
+        </DataTemplate>   
     </Window.Resources>
 
     <Border Width="980"
@@ -75,7 +72,7 @@
 
             </Border>
             <!-- NAVIGATION -->
-             <uc:NavigationView DataContext="{x:Type vm:RegisterViewModel}"
+             <uc:NavigationView DataContext=""
                                 Grid.Column="1"
                                 Grid.Row="2"
                                 Margin="0 20 0 0">
@@ -88,6 +85,7 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Content="{Binding Path=CurrentViewModel}">
+                
                
             </ContentControl>
         </Grid>

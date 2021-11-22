@@ -6,7 +6,7 @@ public partial class App : Application
     {
         IServiceCollection services = new ServiceCollection();
         services.AddTransient<AppDbContextFactory>();
-       
+        services.AddSingleton<ISecurity, SecurityService>();
         services.AddSingleton<AppViewModel>();
         services.AddSingleton<MainWindow>(s => new MainWindow()
         {

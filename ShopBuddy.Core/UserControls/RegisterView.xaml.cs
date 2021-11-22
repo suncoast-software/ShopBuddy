@@ -20,6 +20,16 @@ namespace ShopBuddy.Core.UserControls
     /// </summary>
     public partial class RegisterView : UserControl
     {
+        private readonly AppDbContextFactory _db;
+        private readonly ISecurity _security;
+        public RegisterView(AppDbContextFactory db, ISecurity security)
+        {
+            InitializeComponent();
+            _db = db;
+            _security = security;
+            DataContext = new RegisterViewModel(_db, _security);
+        }
+
         public RegisterView()
         {
             InitializeComponent();
