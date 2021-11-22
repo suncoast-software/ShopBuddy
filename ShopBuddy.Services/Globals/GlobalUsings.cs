@@ -8,4 +8,4 @@ global using Microsoft.EntityFrameworkCore.Design;
 global using Microsoft.EntityFrameworkCore;
 global using ShopBuddy.Data.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
-
+global using System.Security.Cryptography;

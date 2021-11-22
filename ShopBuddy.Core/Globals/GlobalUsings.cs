@@ -11,3 +11,4 @@ global using ShopBuddy.Data;
 global using ShopBuddy.Data.Factories;
 global using ShopBuddy.Data.Models;
 global using System.Linq;
+global using ShopBuddy.Services.Services;

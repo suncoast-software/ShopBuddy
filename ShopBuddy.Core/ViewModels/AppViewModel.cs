@@ -15,7 +15,11 @@
         {
             _db = db.CreateDbContext();
             var user = _db.AppUsers.Where(x => x.IsLoggedIn == true).FirstOrDefault();
-            if (user == null)
+            if (user == null )
+            {
+                CurrentViewModel = new RegisterViewModel();
+            }
+            else if(!user.IsLoggedIn)
                 CurrentViewModel = new LoginViewModel();
            
         }

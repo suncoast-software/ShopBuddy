@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="ShopBuddy.Core.UserControls.NavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:ShopBuddy.Core.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="60">
+
+    <Grid>
+        <ListView Width="60">
+            <ListViewItem
+                Padding="0"
+                Margin="0 4"
+                Height="80"
+                Width="60"
+                HorizontalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
+                        HorizontalAlignment="Center"
+                        Padding="0"
+                        Command="{Binding HomeCommand}"
+                        Height="60">
+                    <md:PackIcon Kind="HomeAccount"
+                                 Width="60"
+                                 Height="60"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Top"
+                                 Padding="0"
+                                 Foreground="#7c7c7c"/>
+                </Button>
+                        
+            </ListViewItem>
+            <ListViewItem
+                Padding="0"
+                Margin="0 4"
+                Height="80"
+                Width="60"
+                HorizontalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
+                        HorizontalAlignment="Center"
+                        Padding="0"
+                        Command="{Binding HomeCommand}"
+                        Height="60">
+                    <md:PackIcon Kind="User"
+                                 Width="60"
+                                 Height="60"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Top"
+                                 Padding="0"
+                                 Foreground="#7c7c7c"/>
+                </Button>
+                        
+            </ListViewItem>
+             <ListViewItem
+                Padding="0"
+                Margin="0 10"
+                Height="80"
+                Width="60"
+                HorizontalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
+                        HorizontalAlignment="Center"
+                        Padding="0"
+                        Command="{Binding HomeCommand}"
+                        Height="60">
+                    <md:PackIcon Kind="DatabaseAdd"
+                                 Width="60"
+                                 Height="60"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Top"
+                                 Padding="0"
+                                 Foreground="#7c7c7c"/>
+                </Button>
+                        
+            </ListViewItem>
+             <ListViewItem
+                Padding="0"
+                Margin="0 10"
+                Height="80"
+                Width="60"
+                HorizontalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
+                        HorizontalAlignment="Center"
+                        Padding="0"
+                        Command="{Binding HomeCommand}"
+                        Height="60">
+                    <md:PackIcon Kind="Settings"
+                                 Width="60"
+                                 Height="60"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Top"
+                                 Padding="0"
+                                 Foreground="#7c7c7c"/>
+                </Button>
+                        
+            </ListViewItem>
+        </ListView>  
+    </Grid>
+</UserControl>
