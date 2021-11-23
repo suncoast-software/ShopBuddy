@@ -9,22 +9,19 @@
              d:DesignHeight="400" d:DesignWidth="60">
 
     <Grid>
-        <ListView Width="60">
+        <ListView Width="60" HorizontalContentAlignment="Center">
             <ListViewItem
                 Padding="0"
                 Margin="0 4"
                 Height="80"
-                Width="60"
-                HorizontalAlignment="Center">
-                <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
-                        HorizontalAlignment="Center"
+                Width="60">
+                <Button Style="{StaticResource MaterialDesignFlatDarkButton}" 
                         Padding="0"
                         Command="{Binding HomeCommand}"
-                        Height="60">
+                        Height="40">
                     <md:PackIcon Kind="HomeAccount"
-                                 Width="60"
-                                 Height="60"
-                                 HorizontalAlignment="Center"
+                                 Width="40"
+                                 Height="40"
                                  VerticalAlignment="Top"
                                  Padding="0"
                                  Foreground="#7c7c7c"/>
@@ -34,18 +31,15 @@
             <ListViewItem
                 Padding="0"
                 Margin="0 4"
-                Height="80"
-                Width="60"
-                HorizontalAlignment="Center">
+                Height="50"
+                Width="60">
                 <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
-                        HorizontalAlignment="Center"
                         Padding="0"
                         Command="{Binding HomeCommand}"
-                        Height="60">
+                        Height="40">
                     <md:PackIcon Kind="User"
-                                 Width="60"
-                                 Height="60"
-                                 HorizontalAlignment="Center"
+                                 Width="40"
+                                 Height="40"
                                  VerticalAlignment="Top"
                                  Padding="0"
                                  Foreground="#7c7c7c"/>
@@ -55,18 +49,16 @@
              <ListViewItem
                 Padding="0"
                 Margin="0 10"
-                Height="80"
+                Height="60"
                 Width="60"
                 HorizontalAlignment="Center">
                 <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
-                        HorizontalAlignment="Center"
                         Padding="0"
                         Command="{Binding HomeCommand}"
-                        Height="60">
+                        Height="40">
                     <md:PackIcon Kind="DatabaseAdd"
-                                 Width="60"
-                                 Height="60"
-                                 HorizontalAlignment="Center"
+                                 Width="40"
+                                 Height="40"
                                  VerticalAlignment="Top"
                                  Padding="0"
                                  Foreground="#7c7c7c"/>
@@ -76,18 +68,16 @@
              <ListViewItem
                 Padding="0"
                 Margin="0 10"
-                Height="80"
+                Height="60"
                 Width="60"
                 HorizontalAlignment="Center">
                 <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
-                        HorizontalAlignment="Center"
                         Padding="0"
                         Command="{Binding HomeCommand}"
-                        Height="60">
+                        Height="40">
                     <md:PackIcon Kind="Settings"
-                                 Width="60"
-                                 Height="60"
-                                 HorizontalAlignment="Center"
+                                 Width="40"
+                                 Height="40"
                                  VerticalAlignment="Top"
                                  Padding="0"
                                  Foreground="#7c7c7c"/>

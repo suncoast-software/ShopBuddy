@@ -85,6 +85,14 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Content="{Binding Path=CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+                        <uc:LoginView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:RegisterViewModel}">
+                        <uc:RegisterView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
                 
                
             </ContentControl>

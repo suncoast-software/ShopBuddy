@@ -19,6 +19,7 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>, ID
 
     }
 
+
     public void Dispose()
     {
         this.Dispose();

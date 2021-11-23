@@ -15,8 +15,8 @@
                 Background="#3c3c3c"
                 CornerRadius="12">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="2"
-                                  ShadowDepth="2"
+                <DropShadowEffect BlurRadius="4"
+                                  ShadowDepth="4"
                                   Direction="270"
                                   Opacity=".6"
                                   Color="#000"/>
