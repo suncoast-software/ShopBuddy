@@ -2,9 +2,9 @@
 
 public class NavigationStore
 {
-    public event Action CurrentViewModelChanged;
-    private BaseViewModel _currentViewModel;
-    public BaseViewModel CurrentViewModel
+    public event Action? CurrentViewModelChanged;
+    private BaseViewModel? _currentViewModel;
+    public BaseViewModel? CurrentViewModel
     {
         get => _currentViewModel;
         set

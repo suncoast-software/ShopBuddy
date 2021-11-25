@@ -21,18 +21,18 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         NavigationStore navigationStore = _serviceProvider.GetRequiredService<NavigationStore>();
-        AppDbContextFactory? dbFactory = _serviceProvider.GetService<AppDbContextFactory>();
-        var db = dbFactory?.CreateDbContext();
+        AppDbContextFactory dbFactory = _serviceProvider.GetRequiredService<AppDbContextFactory>();
+        var db = dbFactory.CreateDbContext();
         var user = db.AppUsers.Any() ? db.AppUsers.First() : null;
         if (user is null)
         {
-            navigationStore.CurrentViewModel = new RegisterViewModel(navigationStore);
+            navigationStore.CurrentViewModel = new RegisterViewModel(dbFactory, navigationStore);
         }
         else
-            navigationStore.CurrentViewModel = new LoginViewModel(navigationStore);
+            navigationStore.CurrentViewModel = new LoginViewModel(dbFactory, navigationStore);
 
-        MainWindow = _serviceProvider.GetService<MainWindow>();
-        MainWindow?.Show();
+        MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+        MainWindow.Show();
         base.OnStartup(e);
     }
 }

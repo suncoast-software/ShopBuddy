@@ -1,8 +1,8 @@
 ﻿namespace ShopBuddy.Core.ViewModels;
 public class RegisterViewModel: BaseViewModel
 {
-    private readonly AppDbContextFactory _dbFactory;
-    private readonly ISecurity _securityService;
+    private readonly AppDbContextFactory _dbFactory; 
+    private readonly NavigationStore _navigationStore;
     public ICommand RegisterUserCommand{ get; set; }
 
     private string _username;
@@ -27,8 +27,10 @@ public class RegisterViewModel: BaseViewModel
     }
 
 
-    public RegisterViewModel(NavigationStore navigationStore)
+    public RegisterViewModel(AppDbContextFactory dbFactory, NavigationStore navigationStore)
     {
+        _dbFactory = dbFactory;
+        _navigationStore = navigationStore;
         RegisterUserCommand = new RelayCommand(RegisterUser);
     }
 
@@ -38,6 +40,7 @@ public class RegisterViewModel: BaseViewModel
         var user = db.AppUsers.Where(x => x.Username == Username).FirstOrDefault();
         if (user == null) // user is null , meaning there is no such user so we can create a new user //
         {
+            var _securityService = new SecurityService();
             var salt = _securityService.GenerateSalt();
             var hasedPassword = _securityService.Hash(Password, salt); //TODO: we need to handle null pointer here
             var newUser = new ApplicationUser()
@@ -59,6 +62,7 @@ public class RegisterViewModel: BaseViewModel
         else
         {
             //TODO: send system message to warn user of failed register attempt.
+            _navigationStore.CurrentViewModel = new LoginViewModel(_dbFactory, _navigationStore);
         }
             
     }

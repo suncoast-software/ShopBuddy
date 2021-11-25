@@ -14,3 +14,4 @@ global using System.Linq;
 global using ShopBuddy.Services.Services;
 global using ShopBuddy.Services.Interfaces;
 global using ShopBuddy.Core.Stores;
+global using ShopBuddy.Core.Commands;

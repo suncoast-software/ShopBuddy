@@ -2,7 +2,7 @@
 {
     public class AppViewModel: BaseViewModel
     {
-        private readonly AppDbContext _db;
+        private readonly AppDbContextFactory _db;
         private readonly NavigationStore _navigationStore;
         public ICommand NavigateHomeCommand { get; }
         public ICommand NavigateSettingsCommand { get; }
@@ -10,10 +10,12 @@
         public ICommand NavigateUsersCommand { get; }
         public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        public AppViewModel(NavigationStore navigationStore)
+        public AppViewModel(AppDbContextFactory dbFactory, NavigationStore navigationStore)
         {
+            _db = dbFactory;
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+            NavigateHomeCommand = new NavigateCommand<RegisterViewModel>(_navigationStore, () => new RegisterViewModel(_db, _navigationStore));
             
                      
         }
@@ -25,7 +27,8 @@
 
         private bool IsLoggedIn(ApplicationUser user)
         {
-            return _db.AppUsers.Where(x => x.Username == user.Username).Any();
+            var db = _db.CreateDbContext();
+            return db.AppUsers.Where(x => x.Username == user.Username).Any();
         }
        
     }

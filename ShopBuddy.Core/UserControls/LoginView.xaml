@@ -61,13 +61,15 @@
                                  Foreground="White"
                                  Width="200"
                                  Height="40"
-                                 Margin="4"/>
+                                 Margin="4"
+                                 Text="{Binding Username}"/>
                          <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  md:HintAssist.Hint="Password"
                                  md:HintAssist.Foreground="Aquamarine"
                                  Foreground="White"
                                  Width="200"
-                                 Height="40"/>
+                                 Height="40"
+                                  Text="{Binding Password}"/>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Center">
                             <Button Style="{StaticResource MaterialDesignFlatAccentBgButton}"
