@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:secure="clr-namespace:ShopBuddy.Core.DependencyProperties"
              xmlns:local="clr-namespace:ShopBuddy.Core.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
@@ -63,13 +64,12 @@
                                  Height="40"
                                  Margin="4"
                                  Text="{Binding Username}"/>
-                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                 md:HintAssist.Hint="Password"
-                                 md:HintAssist.Foreground="Aquamarine"
+                         <PasswordBox secure:SecurePassword.Password="{Binding Password}"
                                  Foreground="White"
                                  Width="200"
                                  Height="40"
-                                  Text="{Binding Password}"/>
+                                 PasswordChar="*"
+                                 VerticalContentAlignment="Bottom"/>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Center">
                             <Button Style="{StaticResource MaterialDesignFlatAccentBgButton}"

@@ -70,7 +70,8 @@
              <uc:NavigationView DataContext=""
                                 Grid.Column="1"
                                 Grid.Row="2"
-                                Margin="0 20 0 0">
+                                Margin="0 20 0 0"
+                                IsEnabled="{Binding CanBind}">
                     
                 </uc:NavigationView>
             <!-- END NAVIGATION -->
@@ -86,6 +87,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type vm:RegisterViewModel}">
                         <uc:RegisterView/>
+                    </DataTemplate>
+                     <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+                        <uc:HomeView/>
                     </DataTemplate>
                 </ContentControl.Resources>
                 

@@ -15,3 +15,6 @@ global using ShopBuddy.Services.Services;
 global using ShopBuddy.Services.Interfaces;
 global using ShopBuddy.Core.Stores;
 global using ShopBuddy.Core.Commands;
+global using System.Windows.Data;
+global using System.Windows.Controls;
+global using System.Globalization;

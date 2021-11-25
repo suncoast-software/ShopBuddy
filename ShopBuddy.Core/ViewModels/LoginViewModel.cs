@@ -1,5 +1,5 @@
 ﻿namespace ShopBuddy.Core.ViewModels;
-public class LoginViewModel: BaseViewModel
+public class LoginViewModel : BaseViewModel
 {
     private readonly NavigationStore? _navigationStore;
     private readonly AppDbContextFactory? _dbFactory;
@@ -43,7 +43,12 @@ public class LoginViewModel: BaseViewModel
         var salt = user.Salt ?? String.Empty;
         var hasedPassword = _securityService.Hash(Password, salt); //TODO: we need to handle null pointer here
         if (hasedPassword.Equals(user.PasswordHash))
-            _navigationStore.CurrentViewModel = new RegisterViewModel(_dbFactory, _navigationStore);
+        {
+            user.IsLoggedIn = true;
+            db.SaveChanges();
+            _navigationStore.CurrentViewModel = new HomeViewModel(_dbFactory, _navigationStore);
+        }
+            
     }
 }
 

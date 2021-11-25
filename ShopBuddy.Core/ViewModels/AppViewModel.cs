@@ -15,9 +15,8 @@
             _db = dbFactory;
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
-            NavigateHomeCommand = new NavigateCommand<RegisterViewModel>(_navigationStore, () => new RegisterViewModel(_db, _navigationStore));
-            
-                     
+            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(_navigationStore, () => new HomeViewModel(_db, _navigationStore));
+                            
         }
 
         private void OnCurrentViewModelChanged()
