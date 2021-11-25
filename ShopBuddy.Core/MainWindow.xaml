@@ -13,11 +13,6 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Background="{x:Null}">
-    <Window.Resources>
-        <DataTemplate x:Name="RegisterViewTemplate" DataType="{x:Type vm:RegisterViewModel}">
-            <uc:RegisterView/>
-        </DataTemplate>   
-    </Window.Resources>
 
     <Border Width="980"
                 Height="580"

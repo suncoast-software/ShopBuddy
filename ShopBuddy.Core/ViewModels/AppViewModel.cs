@@ -3,28 +3,26 @@
     public class AppViewModel: BaseViewModel
     {
         private readonly AppDbContext _db;
-        private readonly ISecurity _security;
+        private readonly NavigationStore _navigationStore;
+        public ICommand NavigateHomeCommand { get; }
+        public ICommand NavigateSettingsCommand { get; }
+        public ICommand NavigateInventoryCommand { get; }
+        public ICommand NavigateUsersCommand { get; }
+        public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        private BaseViewModel _currentViewModel;
-        public BaseViewModel CurrentViewModel
+        public AppViewModel(NavigationStore navigationStore)
         {
-            get => _currentViewModel;
-            set => OnPropertyChanged(ref _currentViewModel, value);
+            _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+            
+                     
         }
 
-        public AppViewModel(AppDbContextFactory db, ISecurity security)
+        private void OnCurrentViewModelChanged()
         {
-            _db = db.CreateDbContext();
-            _security = security;
-            var user = _db.AppUsers.Any() ? _db.AppUsers.First() : null;
-            if (user is null )
-            {
-                CurrentViewModel = new RegisterViewModel(db, security);
-            }
-            else
-                CurrentViewModel = new LoginViewModel();
-           
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
+
         private bool IsLoggedIn(ApplicationUser user)
         {
             return _db.AppUsers.Where(x => x.Username == user.Username).Any();

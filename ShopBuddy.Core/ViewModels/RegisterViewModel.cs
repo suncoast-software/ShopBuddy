@@ -26,14 +26,9 @@ public class RegisterViewModel: BaseViewModel
         set => OnPropertyChanged(ref _email, value);
     }
 
-    public RegisterViewModel()
-    {
-    }
 
-    public RegisterViewModel(AppDbContextFactory dbFactory, ISecurity securityService)
+    public RegisterViewModel(NavigationStore navigationStore)
     {
-        _dbFactory = dbFactory;
-        _securityService = securityService;
         RegisterUserCommand = new RelayCommand(RegisterUser);
     }
 

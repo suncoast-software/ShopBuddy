@@ -1,6 +1,7 @@
 ﻿namespace ShopBuddy.Core.ViewModels;
 public class LoginViewModel: BaseViewModel
 {
+    private readonly NavigationStore _navigationStore;
     public ICommand LoginCommand { get; set; }
     public ICommand CancelCommand { get; set; }
 
@@ -18,20 +19,22 @@ public class LoginViewModel: BaseViewModel
         set => OnPropertyChanged(ref _password, value);
     }
 
-    public LoginViewModel()
+    public LoginViewModel(NavigationStore navigationStore)
     {
+        _navigationStore = navigationStore;
         LoginCommand = new RelayCommand(Login);
         CancelCommand = new RelayCommand(CancelLogin);
     }
 
     private void CancelLogin()
     {
-        throw new NotImplementedException();
+        _navigationStore.CurrentViewModel = new RegisterViewModel(_navigationStore);
     }
 
     private void Login()
     {
-        throw new NotImplementedException();
+        //TODO: confirm login , set HomeViewModel()
+        _navigationStore.CurrentViewModel = new RegisterViewModel(_navigationStore);
     }
 }
 
