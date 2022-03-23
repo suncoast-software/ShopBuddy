@@ -8,15 +8,24 @@
         public ICommand NavigateSettingsCommand { get; }
         public ICommand NavigateInventoryCommand { get; }
         public ICommand NavigateUsersCommand { get; }
-        public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
+        public ICommand CloseCommand { get; set; }
+        public BaseViewModel? CurrentViewModel => _navigationStore.CurrentViewModel;
+
 
         public AppViewModel(AppDbContextFactory dbFactory, NavigationStore navigationStore)
         {
             _db = dbFactory;
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
-            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(_navigationStore, () => new HomeViewModel(_db, _navigationStore));
+            CloseCommand = new RelayCommand(CloseApplication);
+            //NavigateHomeCommand = new NavigateCommand<HomeViewModel>(_navigationStore, () => new HomeViewModel(_db, _navigationStore));
+            //NavigateUsersCommand = new NavigateCommand<UsersViewModel>(_navigationStore, () => new UsersViewModel(_db, _navigationStore));
                             
+        }
+
+        private void CloseApplication()
+        {
+           Application.Current.Shutdown();
         }
 
         private void OnCurrentViewModelChanged()
@@ -24,11 +33,5 @@
             OnPropertyChanged(nameof(CurrentViewModel));
         }
 
-        private bool IsLoggedIn(ApplicationUser user)
-        {
-            var db = _db.CreateDbContext();
-            return db.AppUsers.Where(x => x.Username == user.Username).Any();
-        }
-       
     }
 }

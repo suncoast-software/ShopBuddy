@@ -3,6 +3,7 @@ public class LoginViewModel : BaseViewModel
 {
     private readonly NavigationStore? _navigationStore;
     private readonly AppDbContextFactory? _dbFactory;
+    public ICommand NavigateLoginCommand { get; set; }
     public ICommand LoginCommand { get; set; }
     public ICommand CancelCommand { get; set; }
 
@@ -24,9 +25,16 @@ public class LoginViewModel : BaseViewModel
     {
         _dbFactory = dbFactory;
         _navigationStore = navigationStore;
-        LoginCommand = new RelayCommand(Login);
+        LoginCommand = new RelayCommand(NavigateLogin);
         CancelCommand = new RelayCommand(CancelLogin);
        
+    }
+
+    private void NavigateLogin()
+    {
+        var login = Login();
+        if (login)
+            _navigationStore.CurrentViewModel = new HomeViewModel(_dbFactory, _navigationStore);
     }
 
     private void CancelLogin()
@@ -34,21 +42,27 @@ public class LoginViewModel : BaseViewModel
         _navigationStore.CurrentViewModel = new RegisterViewModel(_dbFactory, _navigationStore);
     }
 
-    private void Login()
+    private bool Login()
     {
         //TODO: Check for empty Values, confirm login , set HomeViewModel()
         var db = _dbFactory.CreateDbContext();
         var _securityService = new SecurityService();
         var user = db.AppUsers.Where(x => x.Username == Username).First();
         var salt = user.Salt ?? String.Empty;
-        var hasedPassword = _securityService.Hash(Password, salt); //TODO: we need to handle null pointer here
+        var hasedPassword = _securityService.Hash(Password, salt);
+        var securePassword = $"{user.PasswordHash}{salt}";
+        //TODO: we need to handle null pointer here
         if (hasedPassword.Equals(user.PasswordHash))
         {
+            var log = true;
             user.IsLoggedIn = true;
             db.SaveChanges();
-            _navigationStore.CurrentViewModel = new HomeViewModel(_dbFactory, _navigationStore);
+            return true;
+           // _navigationStore.AppUser = user;
+           // _navigationStore.CurrentViewModel = new HomeViewModel(_dbFactory, _navigationStore);
+           
         }
-            
+        return false;    
     }
 }
 

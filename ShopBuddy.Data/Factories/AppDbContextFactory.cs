@@ -4,7 +4,7 @@ using ShopBuddy.Services.Services;
 using System;
 
 namespace ShopBuddy.Data.Factories;
-public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>, IDisposable
+public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
     public AppDbContext CreateDbContext(string[] args = null)
     {
@@ -17,12 +17,6 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>, ID
 
         return new AppDbContext(options.Options);
 
-    }
-
-
-    public void Dispose()
-    {
-        this.Dispose();
     }
 }
 

@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace ShopBuddy.Core.UserControls
 {
     /// <summary>
-    /// Interaction logic for NavigationView.xaml
+    /// Interaction logic for UsersView.xaml
     /// </summary>
-    public partial class NavigationView : UserControl
+    public partial class UsersView : UserControl
     {
-        public NavigationView()
+        public UsersView()
         {
             InitializeComponent();
-           
         }
     }
 }

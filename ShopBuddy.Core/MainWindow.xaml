@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopBuddy.Core"
         xmlns:vm="clr-namespace:ShopBuddy.Core.ViewModels"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:uc="clr-namespace:ShopBuddy.Core.UserControls"
         mc:Ignorable="d"
-        Height="600"
-        Width="1000"
+        Height="1000"
+        Width="1400"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Background="{x:Null}">
 
-    <Border Width="980"
-                Height="580"
-               CornerRadius="22" 
-               Background="#1c1c1c">
+    <Border Width="1380"
+            Height="980"
+            CornerRadius="22" 
+            Background="{StaticResource PrimaryToSecondaryGradientBrush}">
         <Border.Effect>
             <DropShadowEffect BlurRadius="8"
                                   ShadowDepth="8"
@@ -28,8 +29,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
@@ -55,27 +55,77 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <!-- HEADER -->
-                     <TextBlock Text="Shop Buddy"
-                           FontSize="22"
+                    
+                    <!--#region HEADER -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Height="40"
+                                Background="Transparent"
+                                BorderBrush="Transparent">
+                            <md:PackIcon Kind="HomeAccount"
+                                         Foreground="White"
+                                         Opacity=".6"
+                                         Height="20"/>
+                        </Button>
+                        <Button Height="40"
+                                Background="Transparent"
+                                BorderBrush="Transparent">
+                            <md:PackIcon Kind="HomeAccount"
+                                         Foreground="White"
+                                         Opacity=".6"
+                                         Height="20"/>
+                        </Button>
+                        <Button Height="40"
+                                Background="Transparent"
+                                BorderBrush="Transparent">
+                            <md:PackIcon Kind="HomeAccount"
+                                         Foreground="White"
+                                         Opacity=".6"
+                                         Height="20"/>
+                        </Button>
+                    </StackPanel>
+                    <TextBlock Text="Shop Buddy"
+                           FontSize="26"
+                           Foreground="{StaticResource AccentToAccent200GradientBrush}"
                            Grid.Column="1"
                            Grid.Row="1"
                            HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
+                           VerticalAlignment="Center">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="4" ShadowDepth="4" Direction="270" Color="#000" Opacity=".7"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
                     <!-- END HEADER -->
+                    
+                    <!-- Close, Minimize and Maximize Buuttons -->
+                    <StackPanel Grid.Column="2"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                Margin="10 0">
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" 
+                            Padding="0"
+                            Command="{Binding CloseCommand}"
+                            Height="40">
+                            <md:PackIcon Kind="Close"
+                                     Width="30"
+                                     Height="30"
+                                     VerticalAlignment="Top"
+                                     Padding="0"
+                                     Background="{x:Null}"
+                                     Foreground="#7c7c7c"/>
+                        </Button>
+                    </StackPanel>
+                    <!-- End Close, Minimize and Maximize Buuttons -->
+                    <!--#endregion-->
+                    
                 </Grid>
 
             </Border>
-            <!-- NAVIGATION -->
-             <uc:NavigationView DataContext=""
-                                Grid.Column="1"
-                                Grid.Row="2"
-                                Margin="0 20 0 0"
-                                IsEnabled="{Binding CanBind}">
-                    
-                </uc:NavigationView>
-            <!-- END NAVIGATION -->
-            <ContentControl Grid.Column="2"
+           <!--#region  NAVIGATION-->
+            <uc:NavigationView Grid.Column="1"
+                               Grid.Row="2"/>
+            <!--#endregion-->
+            
+            <ContentControl Grid.Column="1"
                             Grid.Row="2"
                             Grid.ColumnSpan="2"
                             VerticalAlignment="Center"
@@ -88,12 +138,10 @@
                     <DataTemplate DataType="{x:Type vm:RegisterViewModel}">
                         <uc:RegisterView/>
                     </DataTemplate>
-                     <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+                    <DataTemplate DataType="{x:Type vm:HomeViewModel}">
                         <uc:HomeView/>
                     </DataTemplate>
                 </ContentControl.Resources>
-                
-               
             </ContentControl>
         </Grid>
     </Border>

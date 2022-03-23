@@ -7,3 +7,7 @@ global using ShopBuddy.Services.Interfaces;
 global using ShopBuddy.Data.Configuration;
 global using System.Security.Cryptography;
 global using System.ComponentModel.DataAnnotations;
+global using ShopBuddy.Services.Models;
+global using System.Collections.Generic;
+global using System.Threading.Tasks;
+global using System.Net.Http;

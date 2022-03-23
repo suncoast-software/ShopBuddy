@@ -14,8 +14,8 @@
                 Background="#3c3c3c"
                 CornerRadius="12">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="2"
-                                  ShadowDepth="2"
+                <DropShadowEffect BlurRadius="4"
+                                  ShadowDepth="4"
                                   Direction="270"
                                   Opacity=".6"
                                   Color="#000"/>
@@ -64,14 +64,17 @@
                                  Height="40"
                                  Margin="4"
                                  Text="{Binding Username}"/>
-                         <PasswordBox secure:SecurePassword.Password="{Binding Password}"
+                         <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                 md:HintAssist.Hint="Password"
+                                 secure:SecurePassword.Password="{Binding Password}"
                                  Foreground="White"
                                  Width="200"
                                  Height="40"
                                  PasswordChar="*"
                                  VerticalContentAlignment="Bottom"/>
                         <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Center">
+                                    HorizontalAlignment="Center"
+                                    Margin="0 20 0 0 ">
                             <Button Style="{StaticResource MaterialDesignFlatAccentBgButton}"
                                     Content="LOGIN"
                                     Margin="10 10"
